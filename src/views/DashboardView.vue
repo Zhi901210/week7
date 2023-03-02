@@ -10,7 +10,6 @@
         <div class="navbar-nav">
           <router-link to="/admin/products" class="nav-link" >產品</router-link>
           <router-link to="/admin/Orders" class="nav-link ">訂單</router-link>
-          <router-link to="/admin/coupons" class="nav-link">優惠券</router-link>
           <a href="#" class="nav-link" @click.prevent="logout()">登出</a>
           <router-link to="/" class="nav-link">回前台</router-link>
         </div>

@@ -68,34 +68,18 @@
     </tbody>
 
     <!-- 分頁 -->
-    <!-- <nav aria-label="Page navigation example">
-      <ul class="pagination justify-content-center">
-        <li class="page-item">
-          <a class="page-link" href="#" aria-label="Previous">
-            <span aria-hidden="true">&laquo;</span>
-          </a>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item">
-          <a class="page-link" href="#" aria-label="Next">
-            <span aria-hidden="true">&raquo;</span>
-          </a>
-        </li>
-      </ul>
-    </nav> -->
-
+    <Pagination :pages="pagination" @emitPages="getOrders"></Pagination>
+    <!-- 刪除 -->
     <delOrderModal
       ref="delOrderModal"
       :delorderproduct="copyOrders"
     ></delOrderModal>
+    <!-- 檢視 -->
     <lookOrderModal
       ref="lookOrderModal"
       :lookorders="lookorders"
       :copyOrders="copyOrders"
     ></lookOrderModal>
-    <Pagination :pages="pagination" @emitPages="getOrders"></Pagination>
   </div>
 </template>
 
@@ -126,7 +110,9 @@ export default {
   methods: {
     getOrders (currentPage = 1) {
       this.$http
-        .get(`${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/admin/orders?page=${currentPage}`)
+        .get(
+          `${VITE_APP_URL}/v2/api/${VITE_APP_PATH}/admin/orders?page=${currentPage}`
+        )
         .then((res) => {
           this.orders = res.data.orders
           this.pagination = res.data.pagination
@@ -141,7 +127,6 @@ export default {
     upOrder (order) {
       this.lookorders = { ...order.user }
       this.copyOrders = { ...order }
-      console.log(this.lookorders.name)
     }
   },
   mounted () {

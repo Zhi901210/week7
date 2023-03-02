@@ -23,7 +23,7 @@ git commit -m 'deploy'
 # if you are deploying to https://zhi901210.github.io
 # git push -f git@github.com:zhi901210/zhi901210.github.io.git main
 
-# if you are deploying to https://zhi901210.github.io/week6-vite
-git push -f https://github.com/zhi901210/vite-week6.git main:gh-pages
+# if you are deploying to https://zhi901210.github.io/week7
+git push -f https://github.com/zhi901210/week7.git main:gh-pages
 
 cd -
